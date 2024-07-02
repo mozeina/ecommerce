@@ -16,6 +16,8 @@ const register = async (req, res) => {
 
     try {
 
+        // throw Error('deliberate error');
+
         const userExists = await pool.query('SELECT * FROM users WHERE email = $1 ', [email]);
 
         if (userExists.rows.length > 0) {
@@ -23,7 +25,7 @@ const register = async (req, res) => {
 
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);         
 
         const newUser = await pool.query('INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *', [username, email, hashedPassword]);
 
@@ -38,7 +40,7 @@ const register = async (req, res) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).json({ "error": "Server error" })
+        res.status(500).json({ "error": "Internal server error" })
     }
 
 

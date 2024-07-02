@@ -7,6 +7,7 @@ const cartRoutes = require('./src/store/routers/cartRoutes');
 const accountRoutes = require('./src/store/routers/accountRoutes');
 const ordersRoutes = require('./src/store/routers/ordersRoutes');
 const checkoutRoutes = require('./src/store/routers/checkoutRoutes');
+const cors = require('cors');
 
 //do we even need the db here
 // const pool = require('./config/db');
@@ -19,6 +20,7 @@ const PORT = process.env.PORT || 6543;
 
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors());    
 
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/products', productsRoutes);
