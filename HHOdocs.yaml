@@ -325,7 +325,7 @@ paths:
                     type: string
                     description: Internal server error message
                     
-  /api/v1/users/cart/addToCart:
+  /api/v1/cart/addToCart:
     post: 
       summary: Add item with desired quantity to cart
       security:
