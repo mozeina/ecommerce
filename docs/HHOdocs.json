@@ -359,7 +359,7 @@
         }
       }
     },
-    "/api/v1/users/cart": {
+    "/api/v1/cart": {
       "get": {
         "summary": "View user's cart",
         "security": [
@@ -475,7 +475,7 @@
         }
       }
     },
-    "/api/v1/users/cart/addToCart": {
+    "/api/v1/cart/addToCart": {
       "post": {
         "summary": "Add item with desired quantity to cart",
         "security": [
